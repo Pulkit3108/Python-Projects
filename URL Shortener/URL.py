@@ -1,25 +1,14 @@
-#To run the script in terminal enter $ python URL.py <URL OF THE SITE>
-from __future__ import with_statement
 import contextlib
-try:
-	from urllib.parse import urlencode
-except ImportError:
-	from urllib import urlencode
-try:
-	from urllib.request import urlopen
-except ImportError:
-	from urllib2 import urlopen
-import sys
+import urllib.request, urllib.parse, urllib.error
 
 def make_tiny(url):
 	request_url = ('http://tinyurl.com/api-create.php?' + 
-	urlencode({'url':url}))
-	with contextlib.closing(urlopen(request_url)) as response:
+	urllib.parse.urlencode({'url':url}))
+	with contextlib.closing(urllib.request.urlopen(request_url)) as response:
 		return response.read().decode('utf-8')
 
-def main():
-	for tinyurl in map(make_tiny, sys.argv[1:]):
-		print(tinyurl)
+s=input("Enter The URL : ")
+x=make_tiny(s)
+print("Result :",x)
 
-if __name__ == '__main__':
-	main()
+
