@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Todo - {% block title %}
+        Home
+        {% endblock title %}</title>
+</head>
+
+<body>
+    {% extends 'base.html' %}
+    {% block body %}
+    <div class="container my-3">
+        <h2>Update ToDo</h2>
+        <form action="/update/{{todo.sno}}" method="POST">
+            <div class="form-group">
+                <label for="title">ToDo Title</label>
+                <input type="text" class="form-control" id="title" name="title" value="{{todo.title}}">
+            </div>
+            <div class="form-group">
+                <label for="desc">ToDo Decription</label>
+                <input type="text" class="form-control" id="desc" name="desc" value="{{todo.desc}}">
+            </div>
+            <button type="submit" class="btn btn-outline-primary">Submit</button>
+        </form>
+    </div>
+    {% endblock body %}
+</body>
+
+</html>
