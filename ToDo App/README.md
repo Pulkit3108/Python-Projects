@@ -1,5 +1,14 @@
-### A Simple ToDo App made in Flask
+# ToDo App
 
-The user can enter his task title and description and then click on submit button. The to-do list will be created. The user can also update and delete it as per his requirement.
+A small Flask application for creating, updating, and deleting tasks. It uses a local SQLite database.
 
-> WebApp Link: http://todo-8013.herokuapp.com/
+## Run Locally
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python app.py
+```
+
+Open `http://127.0.0.1:5000` in a browser. The application creates its local `todo.db` database when it starts; the database is intentionally ignored by Git.
